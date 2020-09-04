@@ -57,7 +57,7 @@ class BoardActivity : AppCompatActivity() {
         })
 
 
-        dummyBoard.add(BoardRecyclerViewItem("가나다","asdefghijklmnop"))
+        dummyBoard.add(BoardRecyclerViewItem("가나다","absdgsdsagas"))
         mBoardListFragment!!.setBoard(dummyBoard)
 
         new_button.setOnClickListener(object: View.OnClickListener {
