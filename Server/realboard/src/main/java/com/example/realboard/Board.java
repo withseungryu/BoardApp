@@ -13,7 +13,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-
+//teststsetstes
 @Getter
 @NoArgsConstructor
 @Entity(name="board")
