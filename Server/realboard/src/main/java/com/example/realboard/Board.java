@@ -39,7 +39,8 @@ public class Board implements Serializable {
     @Column
     private Timestamp updatedDate;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
+    @JoinColumn(name= "user_idx")
     private User user;
 
 
@@ -73,6 +74,7 @@ public class Board implements Serializable {
         this.content = board.getContent();
         LocalDateTime localDateTime = LocalDateTime.now();
         this.updatedDate = Timestamp.valueOf(localDateTime);
+        this.user =user;
     }
 
 
