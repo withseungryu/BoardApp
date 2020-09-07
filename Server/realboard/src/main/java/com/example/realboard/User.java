@@ -1,20 +1,20 @@
 package com.example.realboard;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-
+//Git Test
 @Getter
 @NoArgsConstructor
+@EqualsAndHashCode(of="idx")
+@ToString
 @Entity(name="user")
 @Table
 public class User implements Serializable {
     @Id
-    @Column
+    @Column(name="idx")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 
