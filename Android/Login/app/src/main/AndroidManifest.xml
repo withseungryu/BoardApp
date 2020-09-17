@@ -17,18 +17,17 @@
 
         <!--로그인페이지-->
         <activity android:name=".Login.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
 
         <!--회원가입페이지-->
         <activity android:name=".Register.RegisterActivity" />
 
-
-        <!--게시판페이지-->
+        <!--새글 작성-->
         <activity android:name=".Board.NewBoard">
             <intent-filter>
                 <action android:name="android.intent.action.PICK"/>
@@ -36,7 +35,15 @@
                 <data android:scheme="board"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Board.BoardActivity"></activity>
+
+        <activity android:name=".Board.BoardActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

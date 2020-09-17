@@ -1,20 +1,29 @@
 package com.example.login.Retrifit
 
-import com.example.login.Board.Board
+import com.example.login.Board.board
 import com.example.login.Login.Login
 import com.example.login.Register.Register
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface RetrofitService {
 
     //게시판 불러오기
     @GET("/api/boards/")
     fun requestSearchBoard(
-    ):Call<Board>
+    ):Call<board>
+
+    //새로운 글 작성
+    @FormUrlEncoded
+    @POST("/api/boards/")
+    fun requestAdd(
+        //인풋을 정의하는 곳
+        @Field("title") title:String,
+        @Field("subTitle") subTitle:String,
+        @Field("content") content:String,
+        @Field("createdDate") createdDate:String,
+        @Field("updatedDate") updatedDate:String
+    ): Call<board>
 
     //로그인 요청
     @FormUrlEncoded

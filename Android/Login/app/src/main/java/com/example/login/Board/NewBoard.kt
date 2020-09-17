@@ -11,7 +11,8 @@ import kotlinx.android.synthetic.main.new_board.*
 class NewBoard:AppCompatActivity {
     companion object{
         val EXTRA_TITLE = "TITLE"
-        val EXTRA_BODY = "BODY"
+        val EXTRA_SUBTITLE = "SUBTITLE"
+        val EXTRA_CONTENT = "CONTENT"
     }
     constructor():super()
 
@@ -19,14 +20,13 @@ class NewBoard:AppCompatActivity {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_board)
 
-        add_button.setOnClickListener(object:View.OnClickListener {
-            override fun onClick(p0: View?) {
-                val outdata = Intent()
-                outdata.putExtra(EXTRA_TITLE,mtitle.text.toString())
-                outdata.putExtra(EXTRA_BODY,mbody.text.toString())
-                setResult(Activity.RESULT_OK, outdata)
-                finish()
-            }
-        })
+        add_button.setOnClickListener {
+            val outdata = Intent()
+            outdata.putExtra(EXTRA_TITLE,mtitle.text.toString())
+            outdata.putExtra(EXTRA_SUBTITLE,msubtitle.text.toString())
+            outdata.putExtra(EXTRA_CONTENT,mbody.text.toString())
+            setResult(Activity.RESULT_OK, outdata)
+            finish()
+        }
     }
 }
