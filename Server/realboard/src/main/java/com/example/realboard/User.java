@@ -5,16 +5,15 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-//Git Test
+//Git Test22
 @Getter
 @NoArgsConstructor
-@EqualsAndHashCode(of="idx")
 @ToString
 @Entity(name="user")
 @Table
 public class User implements Serializable {
     @Id
-    @Column(name="idx")
+    @Column(name="user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 

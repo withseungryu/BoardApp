@@ -13,10 +13,10 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-//teststsetstes
+
 @Getter
 @NoArgsConstructor
-@Entity(name="board")
+@Entity
 @Table
 public class Board implements Serializable {
     @Id
@@ -74,7 +74,6 @@ public class Board implements Serializable {
         this.content = board.getContent();
         LocalDateTime localDateTime = LocalDateTime.now();
         this.updatedDate = Timestamp.valueOf(localDateTime);
-        this.user =user;
     }
 
 
