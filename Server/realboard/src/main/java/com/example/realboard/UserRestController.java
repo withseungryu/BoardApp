@@ -8,11 +8,12 @@ import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
-@RepositoryRestController
+@RestController
 public class UserRestController {
     private UserRepository userRepository;
 
@@ -21,15 +22,21 @@ public class UserRestController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping("/users")
-    public @ResponseBody
-    CollectionModel<User> simpleUser(@PageableDefault Pageable pageable){
-        Page<User> userList = userRepository.findAll(pageable);
-
-        PagedModel.PageMetadata pageMetadata = new PagedModel.PageMetadata(pageable.getPageSize(), userList.getNumber(),
-                userList.getTotalElements());
-        PagedModel<User> resources = new PagedModel<>(userList.getContent(), pageMetadata );
-        resources.add(linkTo(methodOn(UserRestController.class).simpleUser(pageable)).withSelfRel());
-        return resources;
+    @GetMapping("/auth/kakao/callback")
+    public @ResponseBody String kakaoCallback(String code) {
+        return "코드는 :" + code;
     }
+
+
+//    @GetMapping("/users")
+//    public @ResponseBody
+//    CollectionModel<User> simpleUser(@PageableDefault Pageable pageable){
+//        Page<User> userList = userRepository.findAll(pageable);
+//
+//        PagedModel.PageMetadata pageMetadata = new PagedModel.PageMetadata(pageable.getPageSize(), userList.getNumber(),
+//                userList.getTotalElements());
+//        PagedModel<User> resources = new PagedModel<>(userList.getContent(), pageMetadata );
+//        resources.add(linkTo(methodOn(UserRestController.class).simpleUser(pageable)).withSelfRel());
+//        return resources;
+//    }
 }
